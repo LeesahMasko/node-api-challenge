@@ -5,8 +5,8 @@ const projectRouter = require("./routers/projectRouter");
 
 const server = express();
 
-server.use(express.json);
-server.use(cors());
+server.use(express.json());
+// server.use(cors());
 
 server.use(logger);
 server.use("/projects", projectRouter);
@@ -20,7 +20,7 @@ server.use((err, req, res, next) => {
 });
 
 server.get("/", (req, res) =>{
-  res.send(`<hi>Node API Sprint Challenge</h1>`)
+  res.send(`<hi>Node API Sprint Challenge</h1>`).end()
 });
 
 function logger(req, res, next) {
@@ -32,4 +32,4 @@ function logger(req, res, next) {
   next();
 }
 
-module.export = server;
+module.exports = server;

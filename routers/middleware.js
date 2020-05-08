@@ -1,7 +1,6 @@
 const projects = require("../data/helpers/projectModel");
 const actions = require("../data/helpers/actionModel");
 
-
 async function validateProjectId(req, res, next) {
   try {
     const project = await projects.get(req.params.id);
