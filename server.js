@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors")
+// const cors = require("cors")
 const actionRouter = require("./routers/actionRouter");
 const projectRouter = require("./routers/projectRouter");
 
@@ -9,8 +9,8 @@ server.use(express.json);
 server.use(cors());
 
 server.use(logger);
-server.use(projectRouter);
-server.use(actionRouter);
+server.use("/projects", projectRouter);
+server.use("/actions", actionRouter);
 
 server.use((err, req, res, next) => {
   console.log(err);
